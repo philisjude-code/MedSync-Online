@@ -1,0 +1,103 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+/* ===== Prevent horizontal overflow and full-bleed layout ===== */
+:root, html, body, #root {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  overflow-x: hidden;    /* <-- prevent horizontal scrolling */
+}
+
+/* some layouts create extra width via 100vw; ensure full-width elements cannot overflow */
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* ensure immediate app wrapper won't add whitespace (adjust selector if your wrapper has different id/class) */
+#root > * {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden;
+}
+
+/* Optional: ensure body always shows a vertical scrollbar to avoid layout shift on some browsers */
+html { scroll-behavior: smooth; }
+body { -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+html, body, #root {
+  /* ensure full-bleed layout */
+  max-width: 100% !important;
+  min-width: 0 !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important; /* hide any accidental horizontal overflow */
+}
+
+/* Override the original #root centering rule (keeps other #root styles intact) */
+#root {
+  max-width: 100% !important;   /* override the earlier max-width: 1280px */
+  margin: 0 !important;         /* remove centered auto margins */
+  padding: 0 !important;        /* remove page padding added earlier */
+}
+
+/* Common app wrapper/container names — make them full width and remove side padding */
+.app-wrapper,
+.main-container,
+.container,
+.page-wrapper {
+  max-width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Make sure elements that might intentionally use 100vw don't add overflow */
+[style="width: 100vw"],
+[class*="vw-"] {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
